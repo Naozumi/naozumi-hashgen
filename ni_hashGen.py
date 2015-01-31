@@ -16,7 +16,7 @@ class niUpdater:
 
 		path = StringVar()
 		ver = StringVar()
-		path.set(myloc + "\\NordInvasion")
+		path.set(myloc + "\\NeoGK")
 		ver.set("0.4.9")
 		entry1 = Entry(self.topContainer, textvariable=path)
 		entry1.pack(side=LEFT, expand=1, fill=X)
@@ -79,16 +79,16 @@ class niUpdater:
 		self.button1.configure(state=DISABLED)
 		import time
 		timestamp = int(time.time())
-		folderName = (myloc + '\\ni-mod-' + str(timestamp))
+		folderName = (myloc + '\\NeoGK-mod-' + str(timestamp))
 		if not os.path.exists(folderName):
 			os.mkdir(folderName)
 		file = open(myloc + '\\hash.txt','wt')
 		file.write("V::1\n")
-		file.write("W::http://nordinvasion.com/mod/" + str(versionNumber) + "/\n")
+		file.write("W::https://www.dropbox.com/s/p01cdzq26o2dqfe/Quick.zip?dl=0" + str(versionNumber) + "/\n")
 		self.writeOut(path,file,path+'\\',var,folderName)
 		file.close()
 		var.set("File Generated")
-		tkMessageBox.showinfo("NI Hash Gen", "Hash file generated successfully.")
+		tkMessageBox.showinfo("NeoGK Hash Gen", "Hash file generated successfully.")
 		self.button1.configure(state=NORMAL)
 
 	def buttonHandler_a(self, path, var):
@@ -98,5 +98,5 @@ pathname = os.path.dirname(sys.argv[0])
 myloc = os.path.abspath(pathname)
 root = Tk()
 niup = niUpdater(root)
-root.wm_title("Nord Invasion Hash Generator")
+root.wm_title("NeoGK Hash Generator")
 root.mainloop()
